@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xDodo_</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: url('https://4kwallpapers.com/images/wallpapers/minecraft-game-3840x2160-16737.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin: 0;
+            padding-top: 50px;
+            text-align: center;
+            overflow: hidden;
+            transition: background-image 1s ease-in-out;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 70px;
+            color: #FFD700;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);  /* Przezroczysty biały kolor */
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);  /* Cień dla lepszej widoczności */
+            background: rgba(0, 0, 0, 0.6);  /* Ciemne tło z przezroczystością */
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(6px);  /* Efekt rozmycia tła */
+            margin-top: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .btn {
+            font-size: 26px;
+            padding: 25px 50px;
+            margin: 15px;
+            cursor: pointer;
+            border: 4px solid #fff;
+            border-radius: 30px;  /* Większe zaokrąglenie */
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+            background: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+            animation: fadeInBtn 1s ease-out forwards;
+        }
+
+        @keyframes fadeInBtn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+        }
+
+        .btn1 {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            box-shadow: 0 0 25px 5px #ff416c;
+        }
+
+        .btn2 {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            box-shadow: 0 0 25px 5px #00c6ff;
+        }
+
+        .btn3 {
+            background: linear-gradient(to right, #00ff00, #00b300);
+            box-shadow: 0 0 25px 5px #00ff00;
+        }
+
+        .btn4 {
+            background: linear-gradient(to right, #ff007f, #d5006d);
+            box-shadow: 0 0 25px 5px #ff007f;
+        }
+
+        .btn5 {
+            background: linear-gradient(to right, #ffeb3b, #ffc107);
+            box-shadow: 0 0 25px 5px #ffeb3b;
+        }
+
+        .btnOrange {
+            background: linear-gradient(to right, #ff7f00, #ff8c00);
+            box-shadow: 0 0 25px 5px #ff7f00;
+        }
+
+        #joinBtn {
+            font-size: 30px;
+            padding: 40px 80px;
+            margin: 30px;
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            top: -300px;
+            border-radius: 50px;
+            border: 5px solid #fff;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            box-shadow: 0 0 30px 10px #ff416c;
+            animation: bounce 0.5s ease-out 1;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        #joinBtn:hover {
+            transform: scale(1.2);
+        }
+
+        .newBtns {
+            display: none;
+        }
+
+        #loadingBarContainer {
+            width: 80%;
+            background-color: #333;
+            margin: 20px auto;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+            border: 3px solid #666;
+        }
+
+        #loadingBar {
+            width: 0;
+            height: 100%;
+            background-color: #4caf50;
+            border-radius: 5px;
+            box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.6);
+            transition: width 0.1s ease;
+            animation: pulseLoading 1s infinite;
+        }
+
+        @keyframes pulseLoading {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); }
+            50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); }
+        }
+
+        #socialBtns {
+            margin-bottom: 200px;
+        }
+
+        #donateBtns {
+            margin-top: 200px;
+        }
+
+        .socialBtn {
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .socialBtn:hover {
+            background-color: #555;
+            transform: translateX(10px);
+        }
+
+        .donateBtn {
+            margin-bottom: 40px;
+        }
+
+        #changeBackgroundBtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            padding: 15px 30px;
+            background-color: #ff7f00;
+            color: white;
+            border: none;
+            border-radius: 30px;  /* Większe zaokrąglenie */
+            cursor: pointer;
+            box-shadow: 0 0 10px 3px rgba(255, 127, 0, 0.7);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #changeBackgroundBtn:hover {
+            background-color: #e07b00;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 2s ease-out;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <h1>Witaj na stronie xDodo_!</h1>
+
+        <div id="loadingBarContainer">
+            <div id="loadingBar"></div>
+        </div>
+
+        <button id="joinBtn" class="btn btn1 pulseBtn" onclick="showNewBtns()" style="display: none;">Dołącz do Nas</button>
+
+        <div id="newBtns" class="newBtns">
+            <h2>Wybierz opcję, którą chcesz!</h2>
+            <button class="btn btnOrange" onclick="showSocialMedia()">Odwiedź Nasze Social Media</button>
+            <button class="btn btn3" onclick="showDonate()">Wesprzyj Nas</button>
+        </div>
+
+        <div id="socialBtns" class="newBtns">
+            <h2>Znajdziesz nas na:</h2>
+            <button class="btn btn4 socialBtn" onclick="window.location.href='https://www.youtube.com/@x__Dodo'">YouTube</button>
+            <button class="btn btn5 socialBtn" onclick="window.location.href='https://discord.gg/KG4Ee8hy'">Discord</button>
+            <button class="btn btn2 socialBtn" onclick="window.location.href='https://www.tiktok.com/@xdodoyt_'">TikTok</button>
+            <button class="btn btn3 socialBtn" onclick="window.location.href='https://www.twitch.tv/x__dodo'">Twitch</button>
+            <button class="btn btn1 socialBtn" onclick="window.location.href='https://namemc.com/profile/xDodo_.2'">NameMc</button>
+        </div>
+
+        <div id="donateBtns" class="newBtns">
+            <h2>Chcesz nas wesprzeć?</h2>
+            <button class="btn btn4 donateBtn" onclick="window.location.href='https://tipply.pl/@x__dodo'">Donate Tipply</button>
+            <button class="btn btn5 donateBtn" onclick="window.location.href='https://buycoffee.to/xdod0'">Postaw mi kawę</button>
+        </div>
+
+        <button id="changeBackgroundBtn" onclick="changeBackground()">Zmień Tło</button>
+
+        <div class="footer">
+            &copy; 0.7 0.4 2025 xDodo_ | Wszystkie prawa zastrzeżone.
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        const backgrounds = [
+            'https://4kwallpapers.com/images/wallpapers/minecraft-game-3840x2160-16737.jpg',
+            'https://static1.srcdn.com/wordpress/wp-content/uploads/2021/06/Minecraft-End-City-Official-Artwork.jpg'
+        ];
+
+        let currentBackground = 0;
+
+        function changeBackground() {
+            currentBackground = (currentBackground + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
+        }
+
+        window.onload = function() {
+            let width = 0;
+            document.getElementById("loadingBarContainer").style.display = "block";
+            let loadingInterval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(loadingInterval);
+                    document.getElementById("joinBtn").style.display = "block";
+                    document.getElementById("loadingBarContainer").style.display = "none";
+                } else {
+                    width++;
+                    document.getElementById("loadingBar").style.width = width + "%";
+                }
+            }, 50);
+        }
+
+        function showNewBtns() {
+            document.getElementById("joinBtn").style.display = "none";
+            document.getElementById("newBtns").style.display = "block";
+        }
+
+        function showSocialMedia() {
+            document.getElementById("newBtns").style.display = "none";
+            document.getElementById("socialBtns").style.display = "block";
+        }
+
+        function showDonate() {
+            document.getElementById("newBtns").style.display = "none";
+            document.getElementById("donateBtns").style.display = "block";
+        }
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
+            },
+            retina_detect: true
+        });
+    </script>
+
+</body>
+</html>
